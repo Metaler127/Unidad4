@@ -1,0 +1,78 @@
+body {
+  background-color: #8c2baa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+form {
+  background-color: #f09ae4;
+  padding: 20px;
+  border: 2px solid #0b5783;
+  border-radius: 10px;
+  width: 650px;
+}
+legend {
+  color: #0d83c7;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+label {
+  color: #0d83c7;
+  display: block;
+  margin-bottom: 5px;
+}
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border: 1px solid #0b5783;
+  border-radius: 5px;
+}
+fieldset {
+  border: 1px solid #0b5783;
+  margin-bottom: 10px;
+}
+input[type="radio"] {
+  margin-right: 5px;
+}
+label[for="administrador"] {
+  background-color: #1f75fe;
+  color: white;
+}
+label[for="gerente"] {
+  background-color: #7fe685;
+  color: black;
+}
+label[for="propietario"] {
+  background-color: #ffef96;
+  color: black;
+}
+label[for="agente"] {
+  background-color: #ffb347;
+  color: black;
+}
+label[for="prospecto"] {
+  background-color: #ff6961;
+  color: white;
+}
+button {
+  background-color: #ffffff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+a {
+  display: block;
+  margin-top: 10px;
+  text-align: start;
+  color: #5b34e3;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}

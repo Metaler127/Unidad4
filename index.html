@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de acceso</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        fieldset ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        fieldset ul li {
+            margin-bottom: 10px;
+        }
+
+        fieldset ul li label {
+            margin-left: 5px;
+        }
+
+        fieldset ul li {
+            display: flex;
+            align-items: center;
+        }
+
+        fieldset ul li input {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Formulario de acceso</legend>
+            <fieldset>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+            </fieldset>
+            <fieldset>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </fieldset>
+            <fieldset>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="administrador" name="rol" value="administrador">
+                        <label for="administrador">Administrador</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="gerente" name="rol" value="gerente">
+                        <label for="gerente">Gerente</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="propietario" name="rol" value="propietario">
+                        <label for="propietario">Propietario</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="agente" name="rol" value="agente">
+                        <label for="agente">Agente de ventas</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="prospecto" name="rol" value="prospecto">
+                        <label for="prospecto">Prospecto</label>
+                    </li>
+                </ul>
+            </fieldset>
+            <br>
+            <button type="submit">Acceder</button>
+        </fieldset>
+        <a href="#">¿Olvidó su contraseña?</a>
+    </form>
+</body>
+</html>
