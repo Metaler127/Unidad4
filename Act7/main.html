@@ -100,7 +100,77 @@
             </div>
           </nav>
 
-          <div class="row mt-4  text-align-justify">
+          <div class="row mt-4">
+            <div class="col-12 d-flex justify-content-end">
+              <a
+                href="#"
+                class="btn btn-success ms-auto"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                >Añadir</a
+              >
+            </div>
+
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content bg-dark text-white">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Añadir Producto
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Producto:</p>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">🛒</span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Producto"
+                        aria-label="Producto"
+                        aria-describedby="basic-addon1"
+                      />
+                    </div>
+                    <p>Precio: </p>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">💵</span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Precio"
+                        aria-label="Precio"
+                        aria-describedby="basic-addon1"
+                      />
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Cerrar
+                    </button>
+                    <button type="button" class="btn btn-success">
+                      Guardar producto
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
               <div class="card bg-dark text-white">
                 <img
@@ -118,6 +188,8 @@
                     nihil excepturi!
                   </p>
                   <a href="product.html" class="btn btn-primary">Visitar</a>
+                  <a href="" class="btn btn-warning">Editar</a>
+                  <a href="" class="btn btn-danger">Eliminar</a>
                 </div>
               </div>
             </div>
@@ -125,6 +197,7 @@
         </div>
       </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
