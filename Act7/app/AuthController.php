@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($responseArray->message) && $responseArray->message === "Registro obtenido correctamente" && isset($responseArray->data)) {
             $_SESSION['user'] = $responseArray->data;
 
-            header("Location: ../main.html");
+            header("Location: ../main.php");
             exit();
         } else {
             echo "<script>alert('Login failed: Incorrect username or password.');</script>";

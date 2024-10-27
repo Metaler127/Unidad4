@@ -143,7 +143,7 @@
                         aria-describedby="basic-addon1"
                       />
                     </div>
-                    <p>Precio: </p>
+                    <p>Precio:</p>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">💵</span>
                       <input
@@ -171,28 +171,8 @@
               </div>
             </div>
 
-            <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
-              <div class="card bg-dark text-white">
-                <img
-                  src="../Act7/fuego.png"
-                  class="card-img-top"
-                  alt="Avatar"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Fire</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Obcaecati architecto labore voluptatum harum consectetur.
-                    Cumque ipsum cupiditate repudiandae blanditiis tempore
-                    soluta qui corrupti, doloremque sed itaque nostrum! Totam,
-                    nihil excepturi!
-                  </p>
-                  <a href="product.html" class="btn btn-primary">Visitar</a>
-                  <a href="" class="btn btn-warning">Editar</a>
-                  <a href="" class="btn btn-danger">Eliminar</a>
-                </div>
-              </div>
-            </div>
+            <?php include 'app/ProductList.php'; ?>
+        </div>
           </div>
         </div>
       </div>
