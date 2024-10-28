@@ -1,3 +1,25 @@
+<?php $slug = $_GET['slug'];
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://crud.jonathansoto.mx/api/products/slug/'.$slug,
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'GET',
+  CURLOPT_HTTPHEADER => array(
+    'Authorization: Bearer 17|rRMO05q3HMyZcdCF7zGX586aW7sNSPvrDD9ytYut'
+  ),
+));
+
+$response = curl_exec($curl);
+curl_close($curl);
+$response = json_decode($response, true);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,7 +62,7 @@
               <a class="navbar-brand" href="#">Navbar scroll</a>
               <button
                 class="navbar-toggler"
-                type="button"
+                type="button" 
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
                 aria-controls="navbarNav"
@@ -105,13 +127,13 @@
               <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src=".//fuego.png" class="d-block w-50" alt="..." />
+                    <img src=<?php echo $response['data']['cover']; ?> class="d-block w-50" alt="..." />
                   </div>
                   <div class="carousel-item">
-                    <img src=".//fuego.png" class="d-block w-50" alt="..." />
+                    <img src=<?php echo $response['data']['cover']; ?> class="d-block w-50" alt="..." />
                   </div>
                   <div class="carousel-item">
-                    <img src=".//fuego.png" class="d-block w-50" alt="..." />
+                    <img src=<?php echo $response['data']['cover']; ?> class="d-block w-50" alt="..." />
                   </div>
                 </div>
                 <button
@@ -142,13 +164,24 @@
             </div>
             <div class="col-md-6">
               <div class="card-body">
-                <h5 class="card-title">Fire</h5>
+                <?php if (isset($response['data']['name'])): ?>
+                  <h5 class="card-title"><?php echo $response['data']['name']; ?></h5>
+                <?php else: ?>
+                  <h5 class="card-title">Nombre no disponible</h5>
+                <?php endif; ?>
                 <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Obcaecati architecto labore voluptatum harum consectetur.
-                  Cumque ipsum cupiditate repudiandae blanditiis tempore soluta
-                  qui corrupti, doloremque sed itaque nostrum! Totam, nihil
-                  excepturi!
+                  <?php echo $response['data']['description']; ?>
+                  <br>
+                  <br>
+                  <?php echo $response['data']['features']; ?>
+                  <br>
+                  <br>
+                  <strong>Marca:</strong> <?php echo $response['data']['brand']['name']; ?>
+                  <br>
+                  <strong>Categoría:</strong> <?php echo $response['data']['categories'][0]['name']; ?>
+                  <br>
+                  <br>
+                  <strong>Precio:</strong> $<?php echo $response['data']['presentations'][0]['price'][0]['amount']; ?>
                 </p>
                 <a href="product.html" class="btn btn-primary">Visitar</a>
               </div>

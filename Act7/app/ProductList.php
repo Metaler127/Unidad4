@@ -35,7 +35,7 @@ if (isset($products['data']) && !empty($products['data'])) {
                     <p class="card-text"><strong>Marca:</strong> $brand</p>
                     <p class="card-text"><strong>Categoría:</strong> $category</p>
                     <p class="card-text"><strong>Precio:</strong> \${$price}</p>
-                    <a href="product.html" class="btn btn-primary">Visitar</a>
+                    <a href="product.php?slug={$product['slug']}" class="btn btn-primary">Visitar</a>
                     <a href="#" class="btn btn-warning">Editar</a>
                     <a href="#" class="btn btn-danger">Eliminar</a>
                 </div>
