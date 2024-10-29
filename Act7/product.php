@@ -170,15 +170,31 @@ $response = json_decode($response, true);
                   <h5 class="card-title">Nombre no disponible</h5>
                 <?php endif; ?>
                 <p class="card-text">
-                  <?php echo $response['data']['description']; ?>
+                  <?php if (isset($response['data']['description'])): ?>
+                    <h5 class="card-title"><?php echo $response['data']['description']; ?></h5>
+                  <?php else: ?>
+                    <h5 class="card-title">Descripción no disponible</h5>
+                  <?php endif; ?>
                   <br>
                   <br>
-                  <?php echo $response['data']['features']; ?>
+                  <?php if (isset($response['data']['features'])): ?>
+                    <h5 class="card-title"><?php echo $response['data']['features']; ?></h5>
+                  <?php else: ?>
+                    <h5 class="card-title">Features no disponible</h5>
+                  <?php endif; ?>
                   <br>
                   <br>
-                  <strong>Marca:</strong> <?php echo $response['data']['brand']['name']; ?>
+                  <strong>Marca:</strong><?php if (isset($response['data']['brand']['name'])): ?>
+                    <h5 class="card-title"><?php echo $response['data']['brand']['name']; ?></h5>
+                  <?php else: ?>
+                    <h5 class="card-title">Marca no disponible</h5>
+                  <?php endif; ?>
                   <br>
-                  <strong>Categoría:</strong> <?php echo $response['data']['categories'][0]['name']; ?>
+                  <strong>Categoría:</strong><?php if (isset($response['data']['categories'][0]['name'])): ?>
+                    <h5 class="card-title"><?php echo $response['data']['categories'][0]['name']; ?></h5>
+                  <?php else: ?>
+                    <h5 class="card-title">Categoría no disponible</h5>
+                  <?php endif; ?>
                 </p>
                 <a href="product.html" class="btn btn-primary">Visitar</a>
               </div>
