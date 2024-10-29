@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Products</title>
+    <title>CarlOS</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -110,68 +110,99 @@
                 >Añadir</a
               >
             </div>
-
-            <div
-              class="modal fade"
-              id="exampleModal"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog">
-                <div class="modal-content bg-dark text-white">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                      Añadir Producto
-                    </h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Producto:</p>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">🛒</span>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Producto"
-                        aria-label="Producto"
-                        aria-describedby="basic-addon1"
-                      />
+            <form method="POST" action="app/ProductController.php">
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Añadir Producto
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
                     </div>
-                    <p>Precio:</p>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">💵</span>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Precio"
-                        aria-label="Precio"
-                        aria-describedby="basic-addon1"
-                      />
+                    <div class="modal-body">
+                      <p>Nombre:</p>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">🛒</span>
+                        <input
+                          type="text"
+                          name="name"
+                          class="form-control"
+                          placeholder="Nombre"
+                          aria-label="Producto"
+                          aria-describedby="basic-addon1"
+                          required
+                        />
+                      </div>
+                      <p>Slug:</p>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">🥸</span>
+                        <input
+                          type="text"
+                          name="slug"
+                          class="form-control"
+                          placeholder="Slug"
+                          aria-label="Producto"
+                          aria-describedby="basic-addon1"
+                          required
+                        />
+                      </div>
+                      <p>Descripción:</p>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">📄</span>
+                        <textarea
+                          type="text"
+                          name="description"
+                          class="form-control"
+                          placeholder="Descripción"
+                          aria-label="Producto"
+                          aria-describedby="basic-addon1"
+                          required
+                        ></textarea>
+                      </div>
+                      <p>Características:</p>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">🔎</span>
+                        <input
+                          type="text"
+                          name="features"
+                          class="form-control"
+                          placeholder="Características"
+                          aria-label="Producto"
+                          aria-describedby="basic-addon1"
+                          required
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Cerrar
-                    </button>
-                    <button type="button" class="btn btn-success">
-                      Guardar producto
-                    </button>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Cerrar
+                      </button>
+                      <button type="submit" class="btn btn-success">
+                        Guardar producto
+                      </button>
+                      <input type="hidden" name="action" value="add_product" />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <?php include 'app/ProductList.php'; ?>
+            </form>
+            <?php include 'app/ProductController.php'; ?>
         </div>
           </div>
         </div>

@@ -12,7 +12,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'GET',
   CURLOPT_HTTPHEADER => array(
-    'Authorization: Bearer 17|rRMO05q3HMyZcdCF7zGX586aW7sNSPvrDD9ytYut'
+    'Authorization: Bearer 14|vWhuhUq3DzXaXvIM3spoGo0587hSmOBeZpdZMhsf'
   ),
 ));
 
@@ -25,7 +25,7 @@ $response = json_decode($response, true);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Products</title>
+    <title>CarlOS</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -179,9 +179,6 @@ $response = json_decode($response, true);
                   <strong>Marca:</strong> <?php echo $response['data']['brand']['name']; ?>
                   <br>
                   <strong>Categoría:</strong> <?php echo $response['data']['categories'][0]['name']; ?>
-                  <br>
-                  <br>
-                  <strong>Precio:</strong> $<?php echo $response['data']['presentations'][0]['price'][0]['amount']; ?>
                 </p>
                 <a href="product.html" class="btn btn-primary">Visitar</a>
               </div>
