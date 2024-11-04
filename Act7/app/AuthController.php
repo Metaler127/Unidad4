@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['global_token'])) {
+    $_SESSION['global_token'] = tokenG(20);
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $username = isset($_POST['username']) ? $_POST['username'] : null;
@@ -33,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (isset($responseArray->message) && $responseArray->message === "Registro obtenido correctamente" && isset($responseArray->data)) {
             $_SESSION['user'] = $responseArray->data;
+            $_SESSION['token'] = $responseArray->data->token;
 
             header("Location: ../main.php");
             exit();
@@ -42,4 +47,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo "<script>alert('Username, password, and action are required.');</script>";
     }
+}
+
+function tokenG($leng=10) {
+    $cadena = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    $token = "";
+    for ($i = 0; $i < $leng; $i++) {
+        $token .= $cadena[rand(0, strlen($cadena) - 1)];
+    }
+    return $token;
 }

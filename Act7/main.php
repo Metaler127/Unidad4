@@ -116,49 +116,45 @@
       </div>
     </div>
 
-
 			<div class="col-10">
-				
 				<div class="main p-2">
-
 					<nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">Home</li> 
-          </ol>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">
+                Home
+              </li> 
+            </ol>
 
-          <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Añadir
-          </button> 
-          
+            <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Añadir
+            </button> 
 					</nav>
-					
-					<div class="row">
-						
 
+					<div class="row">
 						<?php if (isset($productos) && count($productos)): ?>
-						<?php foreach ($productos as $product): ?> 
-						
-              <div class="col-3 p-2">
-                <div class="card mb-3 h-100 w-100" style="width: 18rem;">
-                  <img src="<?= $product->cover ?>" class="card-img-top cover" style="height: 200px; object-fit: cover;" alt="<?= $product->name; ?>">
-                  <div class="card-body d-flex flex-column">
-                    <h5 class="card-title"><?= $product->name ?></h5>
-                    <p class="card-text" style="flex-grow: 1;"><?= $product->description ?></p>
-                    <a href="product.php?slug=<?= $product->slug ?>" class="m-1 btn btn-primary">Ver producto</a>
-                    <a onclick="eliminar(<?= $product->id ?>)" class="m-1 btn btn-danger">Eliminar</a>
-                    <a onclick="editar(this)" data-product='<?= json_encode($product) ?>' data-bs-toggle="modal" data-bs-target="#updateModal" class="m-1 btn btn-warning">Editar</a>
+              <?php foreach ($productos as $product): ?> 
+                <div class="col-3 p-2">
+                  <div class="card mb-3 h-100 w-100" style="width: 18rem;">
+                    <div class="d-flex justify-content-center">
+                        <img src="<?= $product->cover ?>" 
+                            class="card-img-top mx-auto d-block" 
+                            style="height: 180px; width: auto; max-width: 100%; object-fit: cover;" 
+                            alt="<?= $product->name; ?>">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title"><?= $product->name ?></h5>
+                      <p class="card-text" style="flex-grow: 1;"><?= $product->description ?></p>
+                      <a href="product.php?slug=<?= $product->slug ?>" class="m-1 btn btn-primary">Ver producto</a>
+                      <a onclick="editar(this)" data-product='<?= json_encode($product) ?>' data-bs-toggle="modal" data-bs-target="#updateModal" class="m-1 btn btn-warning">Editar</a>
+                      <a onclick="eliminar(<?= $product->id ?>)" class="m-1 btn btn-danger">Eliminar</a>
+                    </div>
                   </div>
                 </div>
-              </div>
-						<?php endforeach ?>
+              <?php endforeach ?>
 						<?php endif ?>
-
 					</div>
-
 				</div>
-
 			</div>
-
 		</div>
 	</div>
 
@@ -200,7 +196,8 @@
               <div class="input-group mb-3">
                 <input type="file" class="form-control" name="cover" aria-label="Upload">
               </div>
-              <input type="hidden" name="action" value="crear_producto">
+              <input type="hidden" name="action" value="crear_producto" >
+              <input type="hidden" name="global_token" value="<?php echo isset($_SESSION['global_token']) ? $_SESSION['global_token'] : ''; ?>">
               <button type="submit" class="btn btn-primary">Crear producto</button>
             </form>
           </div>
@@ -251,12 +248,25 @@
 			    </label>
 			    <input type="text" name="features" required class="form-control" id="update_features">
 			  </div>
-			   
+        <label for="" class="form-label">Marca</label>
+        <div class="input-group mb-3">
+          <select class="form-select" name="brand" id="inputGroupSelect04" aria-label="Example select with button addon">
+            <option selected>Marca</option>
+            <?php foreach ($brands as $brand): ?>
+              <option value="<?php echo $brand['id']; ?>"><?php echo htmlspecialchars($brand['name']); ?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+        <label for="" class="form-label">Imagen</label>
+        <div class="input-group mb-3">
+          <input type="file" class="form-control" name="cover" aria-label="Upload">
+        </div>
 			  <button type="submit" class="btn btn-primary">
 			  	Actualizar producto
 			  </button>
 
 			  <input type="hidden" name="action" value="update_producto">
+        <input type="hidden" name="global_token" value="<?php echo isset($_SESSION['global_token']) ? $_SESSION['global_token'] : ''; ?>">
 			  <input type="hidden" name="product_id" value="" id="update_id_product">
 			
 			</form>

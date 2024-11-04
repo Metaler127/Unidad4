@@ -2,48 +2,47 @@
 	session_start();
 
 	if (isset($_POST['action'])) {
-		
-		switch ($_POST['action']) {
+
+		if (isset($_POST['global_token']) && $_POST['global_token'] == $_SESSION['global_token']) {
+			switch ($_POST['action']) {
 			
-			case 'crear_producto':
+				case 'crear_producto':
+					
+					$name_var =  $_POST['name'];
+					$slug_var = $_POST['slug'];
+					$description_var = $_POST['description'];
+					$features_var = $_POST['features'];
+					$brand = $_POST['brand'];
+					$image_var = $_FILES['cover']["tmp_name"];
+	
+					$productsController = new ProductsController();
+					$productsController->create($name_var,$slug_var,$description_var,$features_var, $brand ,$image_var);
+	
+				break; 
+	
+				case 'update_producto':
+					
+					$name_var =  $_POST['name'];
+					$slug_var = $_POST['slug'];
+					$description_var = $_POST['description'];
+					$features_var = $_POST['features'];
+					$product_id = $_POST['product_id'];
+					$brand = $_POST['brand'];
+					$image_var = $_FILES['cover']["tmp_name"];
+	
+					$productsController = new ProductsController();
+					$productsController->update($name_var,$slug_var,$description_var,$features_var,$product_id, $brand ,$image_var);
+	
+				break;
 				
-				$name_var =  $_POST['name'];
-				$slug_var = $_POST['slug'];
-				$description_var = $_POST['description'];
-				$features_var = $_POST['features'];
-				$brand = $_POST['brand'];
-				$image_var = $_FILES['cover']["tmp_name"];
-
-				$productsController = new ProductsController();
-
-				$productsController->create($name_var,$slug_var,$description_var,$features_var, $brand ,$image_var);
-
-			break; 
-
-			case 'update_producto':
-				
-				$name_var =  $_POST['name'];
-				$slug_var = $_POST['slug'];
-				$description_var = $_POST['description'];
-				$features_var = $_POST['features'];
-				$product_id = $_POST['product_id'];
-				$brand = $_POST['brand'];
-				$image_var = $_FILES['cover']["tmp_name"];
-
-				$productsController = new ProductsController();
-
-				$productsController->update($name_var,$slug_var,$description_var,$features_var,$product_id, $brand ,$image_var);
-
-			break;
-			
-			case 'delete_producto':
-				$product_id = $_POST['product_id'];
-
-				$productsController = new ProductsController();
-
-				$productsController->delete($product_id);
-
-			break; 
+				case 'delete_producto':
+					$product_id = $_POST['product_id'];
+	
+					$productsController = new ProductsController();
+					$productsController->delete($product_id);
+	
+				break; 
+			}
 		}
 	}
 
