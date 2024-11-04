@@ -144,7 +144,7 @@
                     <div class="card-body d-flex flex-column">
                       <h5 class="card-title"><?= $product->name ?></h5>
                       <p class="card-text" style="flex-grow: 1;"><?= $product->description ?></p>
-                      <a href="product.php?slug=<?= $product->slug ?>" class="m-1 btn btn-primary">Ver producto</a>
+                      <a href="product/<?= $product->slug ?>" class="m-1 btn btn-primary">Ver producto</a>
                       <a onclick="editar(this)" data-product='<?= json_encode($product) ?>' data-bs-toggle="modal" data-bs-target="#updateModal" class="m-1 btn btn-warning">Editar</a>
                       <a onclick="eliminar(<?= $product->id ?>)" class="m-1 btn btn-danger">Eliminar</a>
                     </div>

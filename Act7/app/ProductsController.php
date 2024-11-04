@@ -142,9 +142,9 @@ class ProductsController
 		$response = json_decode($response);
 	
 		if (isset($response->code) && $response->code > 0) {
-			header("Location: ../main.php?status=ok");
+			header("Location: ../main");
 		} else {
-			header("Location: ../main.php?status=error");
+			header("Location: ../main");
 		}
 	}
 	
@@ -175,11 +175,11 @@ class ProductsController
 
 		if (isset($response->code) && $response->code > 0) {
 			
-			header("Location: ../main.php?status=ok");
+			header("Location: ../main");
 
 		}else{
 			
-			header("Location: ../main.php?status=error");
+			header("Location: ../main");
 		}
 
 	}
@@ -205,7 +205,7 @@ class ProductsController
 		$response = curl_exec($curl);
 
 		curl_close($curl);
-		header("Location: ../main.php?status=ok");
+		header("Location: ../main");
 	}
 }
 

@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user'] = $responseArray->data;
             $_SESSION['token'] = $responseArray->data->token;
 
-            header("Location: ../main.php");
+            header("Location: ../main");
             exit();
         } else {
             echo "<script>alert('Login failed: Incorrect username or password.');</script>";
