@@ -1,11 +1,12 @@
 <?php 
-	
-	include_once "app/ProductsController.php";
+	include "app/ProductsController.php";
+	include "app/BrandController.php";
 
 	$productsController = new ProductsController();
-
 	$productos = array_reverse($productsController->get());
 
+  $brandController = new BrandController();
+  $brands = $brandController->getAll();
 ?>
 <!DOCTYPE html>
 <html>
@@ -169,7 +170,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form method="POST" action="app/ProductsController.php">
+            <form method="POST" enctype="multipart/form-data" action="app/ProductsController.php">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre</label>
                 <input type="text" name="name" class="form-control" id="exampleInputEmail1" required>
@@ -185,6 +186,19 @@
               <div class="mb-3">
                 <label for="" class="form-label">Features</label>
                 <input type="text" name="features" required class="form-control">
+              </div>
+              <label for="" class="form-label">Marca</label>
+              <div class="input-group mb-3">
+                <select class="form-select" name="brand" id="inputGroupSelect04" aria-label="Example select with button addon">
+                  <option selected>Marca</option>
+                  <?php foreach ($brands as $brand): ?>
+                    <option value="<?php echo $brand['id']; ?>"><?php echo htmlspecialchars($brand['name']); ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+              <label for="" class="form-label">Imagen</label>
+              <div class="input-group mb-3">
+                <input type="file" class="form-control" name="cover" aria-label="Upload">
               </div>
               <input type="hidden" name="action" value="crear_producto">
               <button type="submit" class="btn btn-primary">Crear producto</button>
